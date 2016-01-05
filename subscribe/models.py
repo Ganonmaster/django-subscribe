@@ -3,7 +3,7 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
+from django.conf import settings
 
 class Subscription(models.Model):
     """
@@ -19,7 +19,7 @@ class Subscription(models.Model):
         unique_together = ('user', 'content_type', 'object_id', )
 
     user = models.ForeignKey(
-        'auth.User',
+        settings.AUTH_USER_MODEL,
         verbose_name=_('User'),
         related_name='subscriptions',
     )

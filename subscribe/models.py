@@ -21,7 +21,7 @@ class Subscription(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         verbose_name=_('User'),
-        related_name='subscriptions',
+        related_name='itemsubscriptions',
     )
 
     content_type = models.ForeignKey(
